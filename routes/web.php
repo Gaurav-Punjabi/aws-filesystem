@@ -15,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", "App\\Http\\Controllers\\MainController@showPath")->name("show-path");
 Route::post("/upload", "App\\Http\\Controllers\\MainController@uploadFile")->name("upload-file");
+Route::get("/search", "App\\Http\\Controllers\\MainController@search")->name("search");
+Route::get("remove/{id}", "App\\Http\\Controllers\\MainController@remove")->name("remove");
 Route::post("/folder", "App\\Http\\Controllers\\MainController@createFolder")->name("create-folder");

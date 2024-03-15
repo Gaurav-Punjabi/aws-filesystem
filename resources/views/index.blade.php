@@ -25,10 +25,10 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-lg-4 col-sm-6">
-                            <div class="search-box mb-2 me-2">
-                                <div class="position-relative">
+                            <form action="search" class="search-box mb-2 me-2" style="display: flex; flex-direction: row; align-items: center">
+                                <div class="position-relative" style="margin-right: 10px">
                                     <input type="text" class="form-control bg-light border-light rounded"
-                                           placeholder="Search...">
+                                           placeholder="Search..." name="term" required value="{{ $term ?? '' }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
                                          class="eva eva-search-outline search-icon">
                                         <g data-name="Layer 2">
@@ -40,7 +40,11 @@
                                         </g>
                                     </svg>
                                 </div>
-                            </div>
+
+                                <button class="btn btn-outline-success" type="submit">
+                                    Search
+                                </button>
+                            </form>
                         </div>
                         <div class="col-lg-8 col-sm-6">
                             <div class="mt-4 mt-sm-0 d-flex align-items-center justify-content-sm-end">
@@ -209,143 +213,12 @@
 
                     </div>
 
-                    <h5 class="font-size-16 me-3 mb-0">Folders</h5>
-                    <div class="row mt-4">
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card shadow-none border">
-                                <div class="card-body p-3">
-                                    <div class>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <i class="bx bxs-folder h1 mb-0 text-warning"></i>
-                                            </div>
-                                            <div class="avatar-group">
-                                                <div class="avatar-group-item">
-                                                    <a href="javascript: void(0);" class="d-inline-block">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                                             alt class="rounded-circle avatar-sm">
-                                                    </a>
-                                                </div>
-                                                <div class="avatar-group-item">
-                                                    <a href="javascript: void(0);" class="d-inline-block">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                                             alt class="rounded-circle avatar-sm">
-                                                    </a>
-                                                </div>
-                                                <div class="avatar-group-item">
-                                                    <a href="javascript: void(0);" class="d-inline-block">
-                                                        <div class="avatar-sm">
-<span class="avatar-title rounded-circle bg-success text-white font-size-16">
-A
-</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mt-3">
-                                            <div class="overflow-hidden me-auto">
-                                                <h5 class="font-size-15 text-truncate mb-1"><a
-                                                        href="javascript: void(0);" class="text-body">Analytics</a></h5>
-                                                <p class="text-muted text-truncate mb-0">12 Files</p>
-                                            </div>
-                                            <div class="align-self-end ms-2">
-                                                <p class="text-muted mb-0 font-size-13"><i class="mdi mdi-clock"></i> 15
-                                                    min ago</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card shadow-none border">
-                                <div class="card-body p-3">
-                                    <div class>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <i class="bx bxs-folder h1 mb-0 text-warning"></i>
-                                            </div>
-                                            <div class="avatar-group">
-                                                <div class="avatar-group-item">
-                                                    <a href="javascript: void(0);" class="d-inline-block">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                                                             alt class="rounded-circle avatar-sm">
-                                                    </a>
-                                                </div>
-                                                <div class="avatar-group-item">
-                                                    <a href="javascript: void(0);" class="d-inline-block">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                                                             alt class="rounded-circle avatar-sm">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mt-3">
-                                            <div class="overflow-hidden me-auto">
-                                                <h5 class="font-size-15 text-truncate mb-1"><a
-                                                        href="javascript: void(0);" class="text-body">Sketch Design</a>
-                                                </h5>
-                                                <p class="text-muted text-truncate mb-0">235 Files</p>
-                                            </div>
-                                            <div class="align-self-end ms-2">
-                                                <p class="text-muted mb-0 font-size-13"><i class="mdi mdi-clock"></i> 23
-                                                    min ago</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card shadow-none border">
-                                <div class="card-body p-3">
-                                    <div class>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <i class="bx bxs-folder h1 mb-0 text-warning"></i>
-                                            </div>
-                                            <div class="avatar-group">
-                                                <div class="avatar-group-item">
-                                                    <a href="javascript: void(0);" class="d-inline-block">
-                                                        <div class="avatar-sm">
-<span class="avatar-title rounded-circle bg-info text-white font-size-16">
-K
-</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="avatar-group-item">
-                                                    <a href="javascript: void(0);" class="d-inline-block">
-                                                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                                                             alt class="rounded-circle avatar-sm">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mt-3">
-                                            <div class="overflow-hidden me-auto">
-                                                <h5 class="font-size-15 text-truncate mb-1"><a
-                                                        href="javascript: void(0);" class="text-body">Applications</a>
-                                                </h5>
-                                                <p class="text-muted text-truncate mb-0">20 Files</p>
-                                            </div>
-                                            <div class="align-self-end ms-2">
-                                                <p class="text-muted mb-0 font-size-13"><i class="mdi mdi-clock"></i> 45
-                                                    min ago</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
                     <div class="d-flex flex-wrap">
-                        <h5 class="font-size-16 me-3">{{ $path ? $path : "(Root Directory)" }}</h5>
+                        @isset($term)
+                            <h5 class="font-size-16 me-3">Search Results</h5>
+                        @else
+                            <h5 class="font-size-16 me-3">{{ $path ? $path : "(Root Directory)" }}</h5>
+                        @endisset
                     </div>
                     <hr class="mt-2">
                     <div class="table-responsive">
@@ -390,10 +263,7 @@ K
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
                                                 <a class="dropdown-item" href="#">Open</a>
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Rename</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Remove</a>
+                                                <a class="dropdown-item" href="remove/{{$file->id}}">Remove</a>
                                             </div>
                                         </div>
                                     </td>

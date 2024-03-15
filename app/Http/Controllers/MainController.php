@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Metadata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class MainController extends Controller
 {
@@ -28,6 +29,27 @@ class MainController extends Controller
         return view("index")->with([
             'files' => $items,
             'path' => $prettyPath
+        ]);
+    }
+
+    public function remove(Request $request, $id) {
+        $metadata = Metadata::findOrFail($id);
+        $metadata->delete();
+
+        return redirect()->back();
+    }
+
+    public function search(Request $request) {
+        $request->validate([
+            'term' => 'required|string'
+        ]);
+        $term = $request->get('term');
+
+        $items = Metadata::where('name', 'like', "%$term%")->get();
+        return view("index")->with([
+            'files' => $items,
+            'path' => '',
+            'term' => $term
         ]);
     }
 
