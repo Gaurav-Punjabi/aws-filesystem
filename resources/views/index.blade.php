@@ -80,21 +80,10 @@
                     </div>
                     <h5 class="font-size-16 me-3 mb-0">My Files</h5>
                     <div class="row mt-4">
-                        <div class="col-xl-4 col-sm-6">
+                        <div class="col-xl-12 col-sm-12">
                             <div class="card shadow-none border">
                                 <div class="card-body p-3">
                                     <div class>
-                                        <div class="dropdown float-end">
-                                            <a class="text-muted dropdown-toggle font-size-16" href="#" role="button"
-                                               data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <i class="bx bx-dots-vertical-rounded font-size-20"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
                                         <div class="d-flex align-items-center">
                                             <div class="avatar align-self-center me-3">
                                                 <div
@@ -103,95 +92,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex-1">
-                                                <h5 class="font-size-15 mb-1">Google Drive</h5>
-                                                <a href class="font-size-13 text-muted"><u>View Folder</u></a>
-                                            </div>
-                                        </div>
-                                        <div class="mt-3 pt-1">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="text-muted font-size-13 mb-1">20GB</p>
-                                                <p class="text-muted font-size-13 mb-1">50GB used</p>
-                                            </div>
-                                            <div class="progress animated-progess custom-progress">
-                                                <div class="progress-bar bg-gradient bg-primary" role="progressbar"
-                                                     style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                                                     aria-valuemax="90">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card shadow-none border">
-                                <div class="card-body p-3">
-                                    <div class>
-                                        <div class="dropdown float-end">
-                                            <a class="text-muted dropdown-toggle font-size-16" href="#" role="button"
-                                               data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <i class="bx bx-dots-vertical-rounded font-size-20"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar align-self-center me-3">
-                                                <div class="avatar-title rounded bg-soft-info text-info font-size-24">
-                                                    <i class="mdi mdi-dropbox"></i>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h5 class="font-size-15 mb-1">Dropbox</h5>
-                                                <a href class="font-size-13 text-muted"><u>View Folder</u></a>
-                                            </div>
-                                        </div>
-                                        <div class="mt-3 pt-1">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="text-muted font-size-13 mb-1">20GB</p>
-                                                <p class="text-muted font-size-13 mb-1">50GB used</p>
-                                            </div>
-                                            <div class="progress animated-progess custom-progress">
-                                                <div class="progress-bar bg-gradient bg-info" role="progressbar"
-                                                     style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-                                                     aria-valuemax="90">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card shadow-none border">
-                                <div class="card-body p-3">
-                                    <div class>
-                                        <div class="dropdown float-end">
-                                            <a class="text-muted dropdown-toggle font-size-16" href="#" role="button"
-                                               data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <i class="bx bx-dots-vertical-rounded font-size-20"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar align-self-center me-3">
-                                                <div
-                                                    class="avatar-title rounded bg-soft-primary text-primary font-size-24">
-                                                    <i class="mdi mdi-apple-icloud"></i>
-                                                </div>
-                                            </div>
-                                            <div class="flex-1">
-                                                <h5 class="font-size-15 mb-1">One Drive</h5>
-                                                <a href class="font-size-13 text-muted"><u>View Folder</u></a>
+                                                <h5 class="font-size-15 mb-1">Storage Statistics</h5>
                                             </div>
                                         </div>
                                         <div class="mt-3 pt-1">
@@ -235,7 +136,7 @@
                             @foreach($files as $file)
                                 <tr>
                                     @php
-                                        $link = $file->is_file ? 'javascript:;' : route('show-path', ['path' => "$path/$file->name"]);
+                                        $link = $file->is_file ? "file/$file->id" : route('show-path', ['path' => "$path/$file->name"]);
                                     @endphp
                                     <td><a href="{{ $link }}" class="text-dark fw-medium">
                                             <i class="mdi {{ $file->is_file ? 'mdi-file-document' : 'mdi-folder' }} font-size-16 align-middle {{ $file->is_file ? 'text-primary' : 'text-warning' }} me-2"></i>
