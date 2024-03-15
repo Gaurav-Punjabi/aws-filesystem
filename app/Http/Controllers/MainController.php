@@ -40,6 +40,7 @@ class MainController extends Controller
 
         $storagePath = $this->getStoragePath($id);
         $relativePath = "public/root$storagePath";
+//        dd($relativePath);
         if(Storage::disk('s3')->exists($relativePath)) {
             if($metadata->is_file) {
                 Storage::disk('s3')->delete($relativePath);
